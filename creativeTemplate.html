@@ -1,0 +1,67 @@
+<!-- START Cartridge FoodNetwork.com -->
+<!-- Locked to: http://www.foodnetwork.com/example/target/page -->
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    var UID = mdManager.getParameter ("UniqueId"); // Use this to lock to page if needed
+    var targetUID = "{{TARGET_PAGE_UNIQUE_ID}}"; // Locked to: http://www.foodnetwork.com/example/target/page
+    var myIDElement = document.getElementById('sponsorCtr1');
+    if (myIDElement && UID === targetUID) {
+    // If not using page lock, use this to open the if block
+    // if (myIDElement) {
+
+      // Set to escaped markup. I use http://accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/ to save time.
+      var syncedContent="";
+
+
+      $('#sponsorCtr1').html(syncedContent);
+      $('#sponsorCtr1').show();
+    }
+  });
+</script>
+<!-- END Cartridge FoodNetwork.com Creative -->
+
+
+
+
+<!-- ========== -->
+<!-- = Markup NOT INCLUDED IN FINAL CREATIVE = -->
+<!-- ========== -->
+<!-- Markup will need to be converted to a JS string and appended to the sponsorCtr1 div.-->
+<div id="whats-cooking" class="sponsor">
+  <div class="hd"></div>
+  <div class="bd">
+    <p><small>Sponsored Recipes</small></p>
+    <div class="panel clrfix">
+      <div class="twin thumb">
+        <a href="{{MAIN_RECIPE_CLICKTAG}}">
+          <!-- If no alt tag provided, use main recipe title -->
+          <img src="{{MAIN_RECIPE_IMAGE_URL}}" width="120" height="90" alt="{{MAIN_RECIPE_IMAGE_ALT}}">
+        </a>
+        <p><a href="{{MAIN_RECIPE_CLICKTAG}}">{{MAIN_RECIPE_TITLE}}</a></p>
+        <!-- If no courtesy link provided convert to plain text -->
+        <cite>Courtesy of <a href="{{SPONSOR_CLICKTAG}}">{{SPONSOR_NAME}}</a></cite>
+      </div>
+      <div class="twin list recipe_list_wrap">
+        <h6>More recipes from {{SPONSOR_NAME}}</h6>
+          <ul>
+            <!--
+            - <li> for each secondary recipe up to max of 4. Remove any unused items.
+            - If drives off site, add target="_blank" (Just like the RSIs)
+            -->
+            <li><a href="{{SECONDARY_RECIPE_CLICKTAG}}">{{SECONDARY_RECIPE_TITLE}}</a></li>
+            <li><a href="{{SECONDARY_RECIPE_CLICKTAG}}">{{SECONDARY_RECIPE_TITLE}}</a></li>
+            <li><a href="{{SECONDARY_RECIPE_CLICKTAG}}">{{SECONDARY_RECIPE_TITLE}}</a></li>
+            <li><a href="{{SECONDARY_RECIPE_CLICKTAG}}">{{SECONDARY_RECIPE_TITLE}}</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ft"></div>
+  <div class="tableCell">
+    <!-- Extract the img url from the source Excel and put here -->
+    <img id="viewTracker" src="{{IMPRESSION_TRACKING_TAG}}">
+  </div>
+</div>
+<!-- =========== -->
+<!-- = /Markup = -->
+<!-- ===========
