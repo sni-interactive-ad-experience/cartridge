@@ -1,0 +1,70 @@
+<!--
+Food.com Cartridge Template
+Modifed: 08/28/2013 10:09:10
+-->
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    var UID = mdManager.getParameter ("UniqueId"), // Use this to lock to page if needed
+        myIDElement = document.getElementById('sponsorCtr1'),
+        lockPageUid = "{{UNIQUE ID}}"; //# http://www.food.com/healthy/home/package
+
+    if (myIDElement && UID === lockPageUid) {
+      var syncedContent="";
+
+
+      $('#sponsorCtr1').html(syncedContent);
+      $('#sponsorCtr1').show();
+    }
+  });
+</script>
+<!-- END Wildwood 2013 Cartridge -->
+
+
+<!-- ========== -->
+<!-- = Markup = -->
+<!-- ========== -->
+<!-- Markup will need to be converted to a JS string and appended to the sponsorCtr1 div.-->
+<style type="text/css">
+#sponsorCtr1 { display:block; }
+#whats-cooking .twin.list {width:258px;}
+#whats-cooking .twin.thumb{float:left;margin:0 14px 14px;width:298px;}
+#whats-cooking .twin li{line-height:1.2em;margin-top:4px;background:url(http://images.foodnetwork.com/webfood/fn20/imgs/bullet-grey.png) no-repeat left 6px;padding-left:11px;}
+#whats-cooking .twin .callout{font-size:80%;}
+#whats-cooking .thumb img{float:left;margin-right:14px;border:1px solid #ddd;padding:1px;margin-top:3px;}
+#whats-cooking .thumb p a{ font-size: 19px; font-family: "trebuchet ms"; line-height: 1.1em; margin-bottom: 7px; display: block; }
+#whats-cooking cite{font-size:77%;color:#666;display:block;}
+#whats-cooking .mod-head h2{color:#333;font-family:"trebuchet ms";font-size:123%;font-weight:bold;margin-bottom:30px;margin-top:14px;}
+#whats-cooking .twin.thumb p { float: none; font-size: 13px; line-height: inherit; padding-top: 0; white-space: normal; }
+#whats-cooking .twin.thumb cite { float: none; white-space: normal; }
+</style>
+<div id="whats-cooking" class="sponsor">
+  <div class="hd"></div>
+  <div class="bd">
+    <p><small>Sponsored Recipes</small></p>
+    <div class="panel clrfix">
+      <div class="twin thumb">
+        <a href="{{MAIN RECIPE CLICKTAG}}">
+          <img src="{{MAIN RECIPE IMAGE}}" width="120" height="90" alt="{{MAIN RECIPE TITLE}}">
+        </a>
+        <p><a href="{{MAIN RECIPE CLICKTAG}}">{{MAIN RECIPE TITLE}}</a></p>
+        <cite><a href="{{SPONSOR CLICKTAG}}" title="Courtesy of {{SPONSOR NAME}}" target="_blank">Courtesy of {{SPONSOR NAME}}</a></cite>
+      </div>
+      <div class="twin list recipe_list_wrap">
+        <h6>More recipes from {{SPONSOR NAME}}</h6>
+          <ul>
+            <!-- Make one for each recipe. Usually 4 -->
+            <li><a href="{{RECIPE 1 CLICKTAG}}">{{RECIPE 1 TITLE}}</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ft"></div>
+  <div class="tableCell">
+    <!-- Impression Tag -->
+    <img id="viewTracker" src="{{IMPRESSION TAG}}" width="1" height="1" >
+  </div>
+</div>
+<!-- =========== -->
+<!-- = /Markup = -->
+<!-- =========== -->
