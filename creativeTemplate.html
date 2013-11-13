@@ -17,9 +17,17 @@ $(document).ready(function() {
       $('#sponsorCtr1').show();
       loaded = true;
     } else {
-        // Missing sponsorCtr1. Appending to graphic lead module.
-        $('.graphic-lead').after("<div id='sponsorCtr1' style='display:block;'>" + syncedContent + '<div>');
-        loaded = true;
+        // Missing sponsorCtr1.
+        // Loop through possible page hooks array. Insert ad after first match.
+        // Added 11_12_2013 - Fixes cartidges on tentpole page types missing sponsorCtr1
+        var pageHooks = ['.graphic-lead', '#tentpole-lead'];
+        for (var i = pageHooks.length - 1; i >= 0; i--) {
+            if( $('' + pageHooks[i]) ){
+                // Hook found
+                $('' + pageHooks[i]).after("<div id='sponsorCtr1' style='display:block;'>" + syncedContent + '<div>');
+                loaded = true;
+            }
+        }
     }
   } // End UID check
 });
