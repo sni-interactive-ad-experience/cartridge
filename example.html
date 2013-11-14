@@ -1,14 +1,16 @@
-<!-- START Alaska Seafood 2013 Cartridge -->
+<!-- START Alaska Seafood 2013 Cartridge Example -->
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    var UID = mdManager.getParameter ("UniqueId"), // Use this to lock to page if needed
-        myIDElement = document.getElementById('sponsorCtr1'),
-        lockPageUid = "FOOD-TEXT-102671-1"; //http://www.foodnetwork.com/grilling-central-healthy/package/index.html
+    var UID = mdManager.getParameterString("UniqueId"); // Use this to lock to page if needed
+    var targetUID = "FOOD-TEXT-102671-1"; //http://www.foodnetwork.com/grilling-central-healthy/package/index.html
+    var myIDElement = document.getElementById('sponsorCtr1');
+    var loaded = false;
 
-    if (myIDElement && UID === lockPageUid) {
+    if (UID === targetUID) {
+      // Set to escaped markup. I use http://accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/ to save time.
+      var syncedContent = "";
 
-      var syncedContent="";
       syncedContent += "<style>#whats-cooking div.twin{float:left;margin:0 7px 14px;width:250px;_width:237px;}</style>";
       syncedContent += "<div id=\"whats-cooking\" class=\"sponsor\">";
       syncedContent += "  <div class=\"hd\"><\/div>";
@@ -41,9 +43,25 @@
       syncedContent += "<\/div>";
 
 
-      $('#sponsorCtr1').html(syncedContent);
-      $('#sponsorCtr1').show();
-    }
+      // Write to page
+      if (myIDElement && !loaded) {
+        $('#sponsorCtr1').html(syncedContent);
+        $('#sponsorCtr1').show();
+        loaded = true;
+      } else {
+          // Missing sponsorCtr1.
+          // Loop through possible page hooks array. Insert ad after first match.
+          // Added 11_12_2013 - Fixes cartidges on tentpole page types missing sponsorCtr1
+          var pageHooks = ['.graphic-lead', '.spotlight'];
+          for (var i = pageHooks.length - 1; i >= 0; i--) {
+              if( $('' + pageHooks[i]) ){
+                  // Hook found
+                  $('' + pageHooks[i]).after("<div id='sponsorCtr1' style='display:block;'>" + syncedContent + '<div>');
+                  loaded = true;
+              }
+          }
+      } // End write to page block
+    } // End UID check
   });
 </script>
-<!-- END Alaska Seafood 2013 Cartridge -->
+<!-- END Alaska Seafood 2013 Cartridge Example -->
