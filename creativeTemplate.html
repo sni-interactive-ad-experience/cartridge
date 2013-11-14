@@ -20,7 +20,7 @@ $(document).ready(function() {
         // Missing sponsorCtr1.
         // Loop through possible page hooks array. Insert ad after first match.
         // Added 11_12_2013 - Fixes cartidges on tentpole page types missing sponsorCtr1
-        var pageHooks = ['.graphic-lead', '#tentpole-lead'];
+        var pageHooks = ['.graphic-lead', '.spotlight'];
         for (var i = pageHooks.length - 1; i >= 0; i--) {
             if( $('' + pageHooks[i]) ){
                 // Hook found
