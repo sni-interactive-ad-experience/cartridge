@@ -54,7 +54,7 @@
           // Added 11_12_2013 - Fixes cartidges on tentpole page types missing sponsorCtr1
           var pageHooks = ['.graphic-lead', '.spotlight'];
           for (var i = pageHooks.length - 1; i >= 0; i--) {
-              if( $('' + pageHooks[i]) ){
+              if( $('' + pageHooks[i]) && !loaded ){
                   // Hook found
                   $('' + pageHooks[i]).after("<div id='sponsorCtr1' style='display:block;'>" + syncedContent + '<div>');
                   loaded = true;
