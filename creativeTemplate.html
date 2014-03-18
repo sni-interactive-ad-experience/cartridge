@@ -1,35 +1,29 @@
 <!-- START Cartridge FoodNetwork.com -->
-<!-- Locked to: http://www.foodnetwork.com/example/target/page -->
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-  var UID = mdManager.getParameter("UniqueId"); // Use this to lock to page if needed
-  var targetUID = "{{TARGET_PAGE_UNIQUE_ID}}"; // Locked to: http://www.foodnetwork.com/example/target/page
   var myIDElement = document.getElementById('sponsorCtr1');
   var loaded = false;
-  if (UID === targetUID) {
-    // Set to escaped markup. I use http://accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/ to save time.
-    var syncedContent = "";
+  // Set to escaped markup. I use http://accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/ to save time.
+  var syncedContent = "";
 
-
-    // Write to page
-    if (myIDElement && !loaded) {
-      $('#sponsorCtr1').html(syncedContent);
-      $('#sponsorCtr1').show();
-      loaded = true;
-    } else {
-        // Missing sponsorCtr1.
-        // Loop through possible page hooks array. Insert ad after first match.
-        // Added 11_12_2013 - Fixes cartidges on tentpole page types missing sponsorCtr1
-        var pageHooks = ['.graphic-lead', '.spotlight'];
-        for (var i = pageHooks.length - 1; i >= 0; i--) {
-            if( $('' + pageHooks[i]) && !loaded ){
-                // Hook found
-                $('' + pageHooks[i]).after("<div id='sponsorCtr1' style='display:block;'>" + syncedContent + '<div>');
-                loaded = true;
-            }
-        }
-    }
-  } // End UID check
+  // Write to page
+  if (myIDElement && !loaded) {
+    $('#sponsorCtr1').html(syncedContent);
+    $('#sponsorCtr1').show();
+    loaded = true;
+  } else {
+      // Missing sponsorCtr1.
+      // Loop through possible page hooks array. Insert ad after first match.
+      // Added 11_12_2013 - Fixes cartidges on tentpole page types missing sponsorCtr1
+      var pageHooks = ['.graphic-lead', '.spotlight'];
+      for (var i = pageHooks.length - 1; i >= 0; i--) {
+          if( $('' + pageHooks[i]) && !loaded ){
+              // Hook found
+              $('' + pageHooks[i]).after("<div id='sponsorCtr1' style='display:block;'>" + syncedContent + '<div>');
+              loaded = true;
+          }
+      }
+  }
 });
 </script>
 <!-- END Cartridge FoodNetwork.com Creative -->
