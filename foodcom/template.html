@@ -5,13 +5,9 @@ Modifed: 08/28/2013 10:09:10
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    var UID = mdManager.getParameter ("UniqueId"), // Use this to lock to page if needed
-        myIDElement = document.getElementById('sponsorCtr1'),
-        lockPageUid = "{{UNIQUE ID}}"; //# http://www.food.com/healthy/home/package
-
-    if (myIDElement && UID === lockPageUid) {
+    var myIDElement = document.getElementById('sponsorCtr1')
+    if (myIDElement) {
       var syncedContent="";
-
 
       $('#sponsorCtr1').html(syncedContent);
       $('#sponsorCtr1').show();
