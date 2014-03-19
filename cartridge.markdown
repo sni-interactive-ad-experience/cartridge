@@ -14,10 +14,10 @@ Production is very simple and involves a single creative file. The process invol
 - Convert HTML portion to an escaped JS string.
 - Set syncedContent variable in top section to the HTML string.
     - I use [http://accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/](http://accessify.com/tools-and-wizards/developer-tools/html-javascript-convertor/) to make this fast. Choose 3rd option to "Build up a string variable that you can use later". You can also manually escape the string or if you have a better method use that. It just needs to be valid JS.
-- Setup page locking. (Restrict module to a single page regardless of where it is trafficked)
-    - You may hear this referred to as the "Sniffer-Stacker" by the coordinator because it allows us to stack this with other creatives and have it only run on a specific page.  
+- <del>Setup page locking. (Restrict module to a single page regardless of where it is trafficked)
+    - You may hear this referred to as the "Sniffer-Stacker" by the coordinator because it allows us to stack this with other creatives and have it only run on a specific page.
     - To set this up, you need to grab the UniqueID of the page the module will run on (The URL will be in the Excel doc). You can get the unique ID by looking at the target page source or running `mdManager.getUniqueId()` within the JS console on the page.
-    - Set the lockPageUid variable to value from previous step
+    - Set the lockPageUid variable to value from previous step</del> **Page locking is deprecated. Ignore this**
     - In the template file, there are 2 if blocks. If not using the page lock, use the one that just checks for the `#myIDElement` and comment out or remove the other.
 - At this point, the creative is complete and can be setup for preview in Mockingbird.
     - This are setup in the RSI project as well (PID 238). 
